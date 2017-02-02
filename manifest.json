@@ -1,0 +1,48 @@
+{
+    "author": "Le Monde",
+    "background": {
+        "page": "background.html",
+        "persistent": true
+    },
+    "browser_action": {
+        "default_icon" : 
+        {
+            "20" : "icone.png",
+            "40" : "icone.png"
+        },
+        "default_popup": "popup.html",
+        "default_title": "Décodex"
+    },
+    "content_scripts": [
+        {
+            "js": [
+                "content.js"
+            ],
+            "matches": [
+                "http://*/*",
+                "https://*/*"
+            ]
+        }
+    ],
+    "content_security_policy": "script-src 'self'; object-src 'self'",
+    "description": "Avec le Décodex, évaluez en un clin d’oeil si les sites que vous consultez sont fiables.",
+    "icons": {
+        "16": "icone.png"
+    },
+    "Key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlYe8E+qaHvhHJbw8OQm/q+/tmyj3ppZiO1g4WByQnuNRrM8aD9KNif2gijKyZFjnJ/5RfUbvJxMF4G50XP04h+atzLS9+J2E3M6C7E42t+bcMxjQube6V1/QnDmm+nyOJlLyOBg2Cg9mdjfq/QQVGWpqXf8WpCOorZDThfJ63LpIJElyHYW45muNCLKjQLvFGaVzC9eiitQu8oAIWOcHaOld2ketkLeYnEuugYJ4DoXU0nUw2PGZ+9/s/u65Xc4QHT4hj4NssNPW/+GhAq9nV5eJrLqLBp+yixeVlvnIyXzwrpyNmRmA3dG7wKJm/vCWFFbIjvPyhM7CbY1O5GjNlQIDAQAB",
+    "manifest_version": 2,
+    "name": "Decodex",
+    "permissions": [
+        "declarativeContent",
+        "tabs",
+        "storage",
+        "notifications",
+        "activeTab",
+        "http://www.lemonde.fr/webservice/decodex/updates"
+    ],
+    "version": "1.1.1",
+    "-ms-preload": {
+        "backgroundScript": "backgroundScriptsAPIBridge.js",
+        "contentScript": "contentScriptsAPIBridge.js"
+    }
+}
